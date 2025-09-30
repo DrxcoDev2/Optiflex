@@ -1,3 +1,43 @@
+# Optiflex
+**Modern and fast optimizer mod for minecraft forge**
+
+This mod was created with the intention of thoroughly configuring optimizations in Minecraft. It was created using Forge, meaning the rendering is still done using OpenGL.
+
+It doesn't depend on other mods; it's unique and independent.
+
+It's not intended for people with little knowledge of Java; some things will need to be developed from the mod's own source code.
+
+## Build
+- Clone this repo:
+```bash
+$ git clone https://github.com/DrxcoDev2/Optiflex 
+
+```
+
+- Build (Linux & MacOS)
+```bash
+$ chmod +x ./manager.sh
+$ ./manager.sh
+
+```
+- Build (Windows 7+)
+Execute `manager.bat`
+
+## Versions
+
+
+- <details>
+  <summary>1.0.0</summary>
+
+  - Linux `unstable`
+  - Windows `unstable`
+  - MacOS `unstable`
+
+  
+
+</details> 
+
+``` bash
 
 Source installation information for modders
 -------------------------------------------
@@ -44,3 +84,4 @@ Community Documentation: https://docs.minecraftforge.net/en/1.20.1/gettingstarte
 LexManos' Install Video: https://youtu.be/8VEdtQLuLO0
 Forge Forums: https://forums.minecraftforge.net/
 Forge Discord: https://discord.minecraftforge.net/
+```
