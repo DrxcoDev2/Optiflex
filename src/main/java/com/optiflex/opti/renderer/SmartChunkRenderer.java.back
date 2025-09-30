@@ -1,0 +1,36 @@
+package com.optiflex.opti.render;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderLevelLastEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "optiflex", value = Dist.CLIENT)
+public class SmartChunkRenderer {
+
+    private static final Minecraft mc = Minecraft.getInstance();
+
+    @SubscribeEvent
+    public static void onRenderLevel(RenderLevelLastEvent event) {
+        Level level = mc.level;
+        if (level == null) return;
+
+        LevelRenderer renderer = mc.levelRenderer;
+
+        // Ejemplo: reconstruye chunks cercanos al jugador
+        BlockPos playerPos = mc.player.blockPosition();
+        int radius = 4; // chunk radius
+
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                BlockPos pos = playerPos.offset(dx * 16, 0, dz * 16);
+                // No hay getRenderChunk(), pero puedes forzar update
+                renderer.markPosForUpdate(pos);
+            }
+        }
+    }
+}

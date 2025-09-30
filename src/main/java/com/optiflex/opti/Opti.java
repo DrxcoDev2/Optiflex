@@ -1,17 +1,23 @@
 package com.optiflex.opti;
 
-import com.optiflex.opti.config.OptiConfig;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(Opti.MODID)
 public class Opti {
     public static final String MODID = "optiflex";
 
     public Opti() {
-        // Registrar config del cliente
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, OptiConfig.CLIENT_CONFIG);
-        System.out.println("[OptiFlex] Configuración registrada correctamente.");
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        // Registrar ítems
+        ModItems.ITEMS.register(bus);
+
+        // Registrar creative tabs
+        ModCreativeTabs.register(bus);
+
+        // Si en el futuro agregas bloques:
+        // ModBlocks.BLOCKS.register(bus);
     }
 }
